@@ -285,10 +285,12 @@ describe "bundle install with gems on multiple sources" do
     context "with a path gem in the same Gemfile" do
       before do
         build_lib "foo"
+        build_lib "bar"
 
         gemfile <<-G
           gem "rack", :source => "file://#{gem_repo1}"
           gem "foo", :path => "#{lib_path('foo-1.0')}"
+          gem "bar", :path => "#{lib_path('bar-1.0')}"
         G
       end
 
